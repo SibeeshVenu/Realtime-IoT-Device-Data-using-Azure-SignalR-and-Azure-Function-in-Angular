@@ -1,0 +1,12 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{deviceId}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      <ngx-gauge [type]="config.temperatureGaugeType" [value]="temp" [label]="config.temperatureGaugeLabel"
+        [append]="config.temperatureGaugeUnit">
+      </ngx-gauge>
+    </p>
+  </mat-card-content>
+</mat-card>

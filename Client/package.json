@@ -1,5 +1,5 @@
 {
-  "name": "ml-io-tplatform-app",
+  "name": "client",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -23,6 +23,7 @@
     "@angular/router": "~7.1.0",
     "@aspnet/signalr": "^1.1.0",
     "core-js": "^2.5.4",
+    "ngx-gauge": "^1.0.0-beta.7",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"

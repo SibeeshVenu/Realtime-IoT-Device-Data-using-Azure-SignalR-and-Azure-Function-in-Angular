@@ -7,11 +7,20 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SignalRService } from './services/signal-r.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { TemperatureComponent } from './components/temperature/temperature.component';
+import { NgxGaugeModule } from 'ngx-gauge';
+import { HumidityComponent } from './components/humidity/humidity.component';
+import { PressureComponent } from './components/pressure/pressure.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    DashboardComponent,
+    TemperatureComponent,
+    HumidityComponent,
+    PressureComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonModule, MatCheckboxModule,
     MatMenuModule, MatCardModule,
     MatSelectModule, BrowserAnimationsModule,
-    MatTableModule
+    MatTableModule, NgxGaugeModule
   ],
   providers: [
     SignalRService

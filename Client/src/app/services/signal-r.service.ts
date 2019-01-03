@@ -4,7 +4,6 @@ import { Observable, Subject } from 'rxjs';
 import { SignalRConnection } from '../models/signal-r-connection.model';
 import { environment } from '../../environments/environment';
 import * as SignalR from '@aspnet/signalr';
-import { StreamData } from '../models/stream.data';
 
 @Injectable({
   providedIn: 'root'
@@ -32,10 +31,19 @@ export class SignalRService {
         .configureLogging(SignalR.LogLevel.Information)
         .build();
 
-      this.hubConnection.start().catch(error => console.error(error));
-
       this.hubConnection.on('notify', data => {
         this.mxChipData.next(data);
+      });
+
+      this.hubConnection.start()
+        .catch(error => console.error(error));
+
+      this.hubConnection.serverTimeoutInMilliseconds = 300000;
+      this.hubConnection.keepAliveIntervalInMilliseconds = 300000;
+
+      this.hubConnection.onclose((error) => {
+        this.hubConnection.start();
+        console.error(`Something went wrong: ${error}`);
       });
     });
   }

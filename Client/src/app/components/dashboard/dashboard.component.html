@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="row" style="display: flex">
+    <app-temperature [temp]="streamData.temperature" [deviceId]="streamData.deviceId"></app-temperature>
+    <app-humidity [humidity]="streamData.humidity" [deviceId]="streamData.deviceId"></app-humidity>
+    <app-pressure [pressure]="streamData.pressure" [deviceId]="streamData.deviceId"></app-pressure>
+  </div>
+</div>
