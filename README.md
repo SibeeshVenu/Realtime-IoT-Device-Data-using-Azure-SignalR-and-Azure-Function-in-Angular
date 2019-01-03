@@ -4,3 +4,5 @@ We will see how we can show the real-time data from our IoT device in an Angular
 Please feel free to read the complete article here: https://sibeeshpassion.com/realtime-iot-data-using-azure-signalr-and-functions-in-angular/
 
 https://cdn.sibeeshpassion.com/wp-content/uploads/2018/12/Realtime-IoT-Device-Data.gif
+
+![Serverless Realtime MXChip Data Angular](https://cdn.sibeeshpassion.com/wp-content/uploads/2018/12/Serverless-Realtime-MXChip-Data-Angular.gif)
