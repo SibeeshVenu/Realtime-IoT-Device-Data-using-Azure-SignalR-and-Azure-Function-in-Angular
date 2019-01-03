@@ -1,6 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { StreamData } from 'src/app/models/stream.data';
-import { SignalRService } from 'src/app/services/signal-r.service';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { config } from 'src/app/config';
 
 @Component({
@@ -15,6 +13,12 @@ export class PressureComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.pressure);
+  }
+
+  // tslint:disable-next-line:use-life-cycle-interface
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.pressure && changes.pressure.currentValue === null) {
+      this.pressure = changes.pressure.previousValue;
+    }
   }
 }

@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { SignalRService } from 'src/app/services/signal-r.service';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { config } from '../../config';
 
 @Component({
@@ -13,8 +12,15 @@ export class TemperatureComponent implements OnInit {
   @Input() deviceId: any;
   gaugeValue: any;
   config = config;
-  constructor(private signalRService: SignalRService) { }
+  constructor() { }
 
   ngOnInit() {
+  }
+
+  // tslint:disable-next-line:use-life-cycle-interface
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.temp && changes.temp.currentValue === null) {
+      this.temp = changes.temp.previousValue;
+    }
   }
 }

@@ -1,6 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { SignalRService } from 'src/app/services/signal-r.service';
-import { StreamData } from 'src/app/models/stream.data';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { config } from 'src/app/config';
 
 @Component({
@@ -15,5 +13,11 @@ export class HumidityComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+  // tslint:disable-next-line:use-life-cycle-interface
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.humidity && changes.humidity.currentValue === null) {
+      this.humidity = changes.humidity.previousValue;
+    }
   }
 }

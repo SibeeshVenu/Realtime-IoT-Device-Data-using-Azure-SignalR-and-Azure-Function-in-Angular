@@ -15,7 +15,6 @@ export class DashboardComponent implements OnInit {
     this.signalRService.init();
     this.signalRService.mxChipData.subscribe(data => {
       this.streamData = JSON.parse(data);
-    console.log(this.streamData);
     });
   }
 
